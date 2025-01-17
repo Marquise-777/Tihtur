@@ -30,14 +30,15 @@ import Tasks from "../components/task/Tasks.vue";
 
 const tasks =  ref([])
 
+const uncompletedTasks = computed(() => tasks.value.filter(task => !task.is_completed))
+const completedTasks = computed(() => tasks.value.filter(task => task.is_completed))
+
 onMounted(async () => {
    
     const { data } = await allTasks();
         
     tasks.value =  data.data
         
-    const uncompletedTasks = computed(() => tasks.value.filter(task => !task.is_completed))
-    const completedTasks = computed(() => tasks.value.filter(task => task.is_completed))
    
 })
 </script>
