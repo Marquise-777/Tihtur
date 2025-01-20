@@ -11,7 +11,7 @@
                     <!-- List of uncompleted tasks -->
                     <Tasks :tasks="uncompletedTasks" />
                     <!-- Show toggle button -->
-
+                    <div class="text center"></div>
                     <!-- List of completed Tasks -->
                     <Tasks :tasks="completedTasks" />
 
