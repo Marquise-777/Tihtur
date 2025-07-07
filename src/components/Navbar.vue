@@ -19,6 +19,15 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <button 
+                            @click="toggleTheme" 
+                            class="btn btn-outline-secondary ms-2" 
+                            :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+                            aria-label="Toggle theme">
+                            <IconTheme :isDark="isDark" />
+                        </button>
+                    </li>
+                    <li class="nav-item">
                         <a href="login.html" class="btn btn-outline-secondary ms-2">Login</a>
                     </li>
                     <li class="nav-item">
@@ -32,3 +41,10 @@
         </div>
     </nav>
 </template>
+
+<script setup>
+import { useTheme } from '../composables/useTheme'
+import IconTheme from './icons/IconTheme.vue'
+
+const { isDark, toggleTheme } = useTheme()
+</script>
